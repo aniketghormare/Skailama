@@ -1,61 +1,64 @@
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+.modal-overlay1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.modal-content {
-    position: relative;  /* Ensure relative positioning */
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    height: 180px;
+.modal-content1 {
+  position: relative; 
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  height: 180px;
+  /* text-align: start; */
 }
 
 .close-button {
-    position: absolute;  /* Position absolute relative to modal-content */
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+  position: absolute; 
+  top: 10px;
+  right: 10px;
+  /* background: none; */
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  /* background-color: blueviolet; */
 }
 
-
-.modalbtndiv{
-    display: flex;
-    justify-content: end;
-    gap: 10px;
-    
+.modalbtndiv {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin-top: 20px;
 }
-.modalbtndiv button{
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 50px;
-}
-
-input{
-    width: 98%;
-    height: 30px;
-    margin-top: 5px;
-    padding: 3px;
-}
-.form{
-margin-top: 30px;
+.modalbtndiv button {
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 50px;
 }
 
-h3{
-    margin-top: -10px;
+input {
+  width: 98%;
+  height: 30px;
+  margin-top: 5px;
+  padding: 3px;
+}
+.form {
+  margin-top: 50px;
+  text-align: start;
+  /* margin-top: 10px; */
 }
 
+h3 {
+  margin-top: -10px;
+  text-align: start;
+}
