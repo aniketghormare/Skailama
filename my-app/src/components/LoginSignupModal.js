@@ -3,13 +3,13 @@ import '../style/LoginModal.css';
 // import { json } from 'stream/consumers';
 
 const LoginSignupModal = ({ onClose, onLoginSuccess,getProjects }) => {
-    const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
+    const [isLogin, setIsLogin] = useState(true); 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const handleLogin = () => {
         // Perform login logic
         // If successful:
-        fetch("http://localhost:5000/auth/login", {
+        fetch("https://skailama-gules.vercel.app/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const LoginSignupModal = ({ onClose, onLoginSuccess,getProjects }) => {
         console.log(email, password)
         // onLoginSuccess();
 
-        fetch("http://localhost:5000/auth/signup", {
+        fetch("https://skailama-gules.vercel.app/auth/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -21,7 +21,7 @@ const Project = () => {
 
     const getProjects = () => {
         const token = localStorage.getItem("token");
-        fetch("http://localhost:5000/project/get", {
+        fetch("https://skailama-gules.vercel.app/project/get", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

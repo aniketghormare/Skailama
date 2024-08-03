@@ -3,7 +3,7 @@ import '../style/Table.css'; // Make sure to create this file for custom styling
 
 const Table = ({ data, setSearchParams, getTabledata, setEditData,setId }) => {
   const handledelete = (id) => {
-    fetch(`http://localhost:5000/table/delete/${id}`, {
+    fetch(`https://skailama-gules.vercel.app/table/delete/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

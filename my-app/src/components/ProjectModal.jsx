@@ -6,7 +6,7 @@ const ProjectModal = ({ onClose,getProjects }) => {
 
     const handlesubmit = (e) => {
         e.preventDefault()
-        fetch("http://localhost:5000/project/add", {
+        fetch("https://skailama-gules.vercel.app/project/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

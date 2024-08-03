@@ -63,7 +63,7 @@ const Dashboard = () => {
     }
     const getTabledata = () => {
         // const token = localStorage.getItem("token");
-        fetch(`http://localhost:5000/table/get/${params.id}`, {
+        fetch(`https://skailama-gules.vercel.app/table/get/${params.id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const Dashboard = () => {
     }, [])
 
     const handlesavedesc = (id) => {
-        fetch(`http://localhost:5000/table/update/${id}`, {
+        fetch(`https://skailama-gules.vercel.app/table/update/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

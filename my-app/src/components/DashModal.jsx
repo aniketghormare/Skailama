@@ -11,7 +11,7 @@ const DashModal = ({ onClose ,getTabledata}) => {
 
     const handleupload = (e) => {
         e.preventDefault()
-        fetch("http://localhost:5000/table/add", {
+        fetch("https://skailama-gules.vercel.app/table/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
