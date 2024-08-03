@@ -14,7 +14,9 @@ app.use("/auth",authRouter)
 app.use("/project",projectRouter)
 
 app.use("/table",tableRouter)
-
+app.get("/",(req,res)=>{
+   return res.json({msg:"home"})
+})
 
 
 app.listen(PORT,()=>{
