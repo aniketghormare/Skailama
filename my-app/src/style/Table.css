@@ -41,4 +41,15 @@
   /* button:hover {
     background-color: #45a049;
   } */
+
+  @media screen and (max-width:500px) {
+    .table-container {
+      padding: 20px;
+      height: 260px;
+      overflow: scroll;
+      overflow-x:scroll;
+      overflow-y: scroll;
+      /* overflow-y: hidden;  */
+    }
+  }
   

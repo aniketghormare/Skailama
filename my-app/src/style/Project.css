@@ -239,3 +239,25 @@
   font-weight: 400;
   /* margin-top: -5px; */
 }
+
+
+@media screen and (max-width:500px) {
+  .carddiv{
+    
+    grid-template-columns: repeat(1,1fr);
+
+   
+  }
+  
+
+  .headerdata{
+    flex-direction: column;
+    /* border: 1px solid red; */
+    height: auto;
+    justify-content: left;
+  }
+}
+
+
+
+

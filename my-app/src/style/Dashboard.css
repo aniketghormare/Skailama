@@ -468,3 +468,60 @@ li *{
     border-color: #999999;
     border-radius: 3px;
 }
+
+.hamberger{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width:500px) {
+    .sidebar{
+      
+        /* width: 10%; */
+         display: none; 
+    }
+    
+    .dashboardmaincontainer{
+        height: 100%;
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+
+    .dashcard{
+       
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 20px;
+        row-gap: 10px;
+
+    }
+    
+    .carddash{
+        height: 75px;
+        width: 170px;
+      
+        display: flex;
+        border-radius: 12px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    }
+
+    .hamberger{
+        display: block;
+    }
+
+    .nav *{
+        margin-top: 10px;
+    }
+
+
+    Table{
+        margin-left: -19px;
+    }
+
+    Table button{
+        padding: 3px;
+    }
+    
+  }

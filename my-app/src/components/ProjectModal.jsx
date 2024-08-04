@@ -6,6 +6,10 @@ const ProjectModal = ({ onClose,getProjects }) => {
 
     const handlesubmit = (e) => {
         e.preventDefault()
+
+        if(project==""){
+            return alert("Please fill projectname")
+        }
         fetch("https://skailama-gules.vercel.app/project/add", {
             method: "POST",
             headers: {

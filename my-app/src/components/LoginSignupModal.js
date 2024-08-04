@@ -9,6 +9,9 @@ const LoginSignupModal = ({ onClose, onLoginSuccess,getProjects }) => {
     const handleLogin = () => {
         // Perform login logic
         // If successful:
+        if(password=="" || email==""){
+            return alert("Please fill all the details.")
+        }
         fetch("https://skailama-gules.vercel.app/auth/login", {
             method: "POST",
             headers: {
@@ -49,6 +52,9 @@ const LoginSignupModal = ({ onClose, onLoginSuccess,getProjects }) => {
     const handleSignup = () => {
         console.log(email, password)
         // onLoginSuccess();
+        if(password=="" || email==""){
+            return alert("Please fill all the details.")
+        }
 
         fetch("https://skailama-gules.vercel.app/auth/signup", {
             method: "POST",

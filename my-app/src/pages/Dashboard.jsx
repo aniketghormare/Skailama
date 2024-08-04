@@ -8,6 +8,8 @@ import { FaRegBell } from "react-icons/fa";
 import Youtube from "../images/Vector.png";
 import { IoSettingsOutline } from 'react-icons/io5';
 import download from "../images/download.png";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 import image from "../images/image.png";
 import DashModal from '../components/DashModal';
 import ProjectModal from '../components/ProjectModal';
@@ -28,6 +30,12 @@ const Dashboard = () => {
     // const selected = searchParams.get('selected');
     const selected = (searchParams.get('selected'))
     const [data, setData] = useState([])
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    // Function to toggle dropdown visibility
+    const toggleDropdown = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
     // const data = [
     //     { name: 'File1', uploadDate: '2024-08-02 10:00 AM', status: 'Uploaded', action: 'View' },
     //     { name: 'File2', uploadDate: '2024-08-01 09:30 AM', status: 'Failed', action: 'Retry' },
@@ -60,6 +68,7 @@ const Dashboard = () => {
     const handleList = (e) => {
         let value = e.target.getAttribute('data-value');
         setSearchParams({ selected: value });
+        setDropdownVisible(false)
         console.log(value);
     }
     const getTabledata = () => {
@@ -88,6 +97,7 @@ const Dashboard = () => {
     }, [])
 
     const handlesavedesc = (id) => {
+        // if(editData=="")
         fetch(`https://skailama-gules.vercel.app/table/update/${id}`, {
             method: "PATCH",
             headers: {
@@ -116,8 +126,48 @@ const Dashboard = () => {
     console.log("editeddata", editData)
 
     return (
-        <div style={{ height: "100vh", width: "100vw" }}>
+        <div style={{ height: "100vh", width: "100vw" }} >
             <div className='DashboardContainer'>
+
+                {/*  */}
+                <div className='hamberger' style={{ position: 'relative' }}>
+
+                    <GiHamburgerMenu
+                        style={{ height: "40px", width: "40px", marginLeft: "10px", position: "absolute" }}
+                        onClick={toggleDropdown}
+                    />
+
+
+                    {dropdownVisible && (
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: '50px',
+                                left: '10px',
+                                backgroundColor: '#fff',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                                zIndex: 1,
+                                padding: '10px',
+                                borderRadius: '4px'
+                            }}
+                        >
+                            <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
+                                {/* <li style={{ padding: '8px 0' }}>Option 1</li>
+                                <li style={{ padding: '8px 0' }}>Option 2</li>
+                                <li style={{ padding: '8px 0' }}>Option 3</li> */}
+
+                                <li data-value="projects" style={selected === "projects" ? { backgroundColor: "blueviolet", color: "white",fontSize:"15px" } : null} onClick={(e) => handleList(e)}><span className='span'>1</span>Projects</li>
+                                <li data-value="Widget" style={selected === "Widget" ? { backgroundColor: "blueviolet", color: "white",fontSize:"15px" } : null} onClick={(e) => handleList(e)}><span className='span'>2</span>Widget Configuration</li>
+                                <li data-value="Deployment" style={selected === "Deployment" ? { backgroundColor: "blueviolet", color: "white",fontSize:"15px" } : null} onClick={(e) => handleList(e)}><span className='span'>3</span>Deployment</li>
+                                <li data-value="Pricing" style={selected === "Pricing" ? { backgroundColor: "blueviolet", color: "white" ,fontSize:"15px"} : null} onClick={(e) => handleList(e)}><span className='span'>4</span>Pricing</li>
+                                <li data-value="setting" style={selected === "setting" ? { backgroundColor: "blueviolet", color: "white",fontSize:"15px" } : null} onClick={(e) => handleList(e)}><span className='span'>5</span>Setting</li>
+                                {/* <li id='setting' data-value="setting" style={selected === "setting" ? { backgroundColor: "blueviolet", color: "white" } : null} onClick={(e) => handleList(e)}><span className='span1'><IoSettingsOutline style={{ marginRight: "5px" }} /></span>Setting</li> */}
+                            </ul>
+                        </div>
+                    )}
+                    {/* </div> */}
+                    {/*  */}
+                </div>
                 <div className='sidebar'>
                     <div className='logodash' onClick={() => navigate("/")}>
                         <img width={"15%"} src={Logo} alt="" />
@@ -129,7 +179,7 @@ const Dashboard = () => {
                             <li data-value="Widget" style={selected === "Widget" ? { backgroundColor: "blueviolet", color: "white" } : null} onClick={(e) => handleList(e)}><span className='span'>2</span>Widget Configuration</li>
                             <li data-value="Deployment" style={selected === "Deployment" ? { backgroundColor: "blueviolet", color: "white" } : null} onClick={(e) => handleList(e)}><span className='span'>3</span>Deployment</li>
                             <li data-value="Pricing" style={selected === "Pricing" ? { backgroundColor: "blueviolet", color: "white" } : null} onClick={(e) => handleList(e)}><span className='span'>4</span>Pricing</li>
-
+                            <li id='setting' data-value="setting" style={selected === "setting" ? { backgroundColor: "blueviolet", color: "white" } : null} onClick={(e) => handleList(e)}><span className='span1'><IoSettingsOutline style={{ marginRight: "5px" }} /></span>Setting</li>
                         </ul>
                         <hr style={{ width: "90%", height: "1px", backgroundColor: "#E2D8EE" }} />
                     </div>
@@ -278,7 +328,7 @@ const Dashboard = () => {
                             {
                                 selected == "setting" && <div className='settingdiv'>
                                     <div className='profilediv'>
-                                        <div style={{height:"80px",width:"80px",border:"1px solid white",borderRadius:"50%"}}><img width={"100%"}  src={image} alt="" /></div>
+                                        <div style={{ height: "80px", width: "80px", border: "1px solid white", borderRadius: "50%" }}><img width={"100%"} src={image} alt="" /></div>
                                         <div><form action="">
                                             <div><label htmlFor="">User Name</label><input type="text" /></div>
                                             <div><label htmlFor="">Email</label><input type="text" /></div>
@@ -286,13 +336,13 @@ const Dashboard = () => {
                                     </div>
 
                                     <div>
-                                        <h1 style={{color:"blueviolet"}}>Subscriptions</h1>
-                                        <div className='bluebox' style={{height:"60px"}}>
+                                        <h1 style={{ color: "blueviolet" }}>Subscriptions</h1>
+                                        <div className='bluebox' style={{ height: "60px" }}>
                                             <span>All files are processed! Your widget is ready to go!</span>
                                             <button>Try it out!</button>
-                                          
+
                                         </div>
-                                        <p style={{fontSize:"14px",color:"red",fontWeight:"500",textDecoration:"underline",fontWeight:"500"}}>Cancel Subscription</p>
+                                        <p style={{ fontSize: "14px", color: "red", fontWeight: "500", textDecoration: "underline", fontWeight: "500" }}>Cancel Subscription</p>
 
                                     </div>
                                 </div>
@@ -327,6 +377,7 @@ const Dashboard = () => {
                                     <textarea disabled={dis1} className='stringdiv'
                                         // value={editData}
                                         value={editData}
+                                        style={{ fontSize: "20px", fontWeight: "200", border: "white" }}
                                         onChange={(e) => setEditData(e.target.value)}
                                     >
                                         {/* {editData} */}
@@ -342,7 +393,7 @@ const Dashboard = () => {
                                         {[0, 1, 2].map((el) => (
                                             <div className='carddash' key={el} onClick={handleshow}>
                                                 <div className='card1' style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                    <div style={{ height: "60px", width: "60px", borderRadius: "50%", backgroundColor: "red", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                    <div style={{ height: "50px", width: "50px", borderRadius: "50%", backgroundColor: "red", display: "flex", justifyContent: "center", alignItems: "center" }}>
                                                         <img width={"75%"} src={Youtube} alt="" />
                                                     </div>
                                                 </div>

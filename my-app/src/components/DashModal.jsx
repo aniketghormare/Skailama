@@ -11,6 +11,10 @@ const DashModal = ({ onClose ,getTabledata}) => {
 
     const handleupload = (e) => {
         e.preventDefault()
+
+        if(name=="" || desc=="" ){
+            return alert("Please fill all the details.")
+        }
         fetch("https://skailama-gules.vercel.app/table/add", {
             method: "POST",
             headers: {
