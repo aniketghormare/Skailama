@@ -44,11 +44,11 @@ const Project = () => {
          }
     }, [])
 
-    // useEffect(()=>{
-    //     if(projects.length>0){
-    //         setIsLoginModalOpen(false)
-    //     }
-    // },[location])
+    useEffect(() => {
+        if (projects.length > 0) {
+            setIsLoginModalOpen(false);
+        }
+    }, [projects, location]);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);

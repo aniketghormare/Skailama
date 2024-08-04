@@ -8,6 +8,7 @@ import { FaRegBell } from "react-icons/fa";
 import Youtube from "../images/Vector.png";
 import { IoSettingsOutline } from 'react-icons/io5';
 import download from "../images/download.png";
+import image from "../images/image.png";
 import DashModal from '../components/DashModal';
 import ProjectModal from '../components/ProjectModal';
 import Table from '../components/Table';
@@ -94,7 +95,7 @@ const Dashboard = () => {
                 "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
             },
             body: JSON.stringify({
-                desc:editData
+                desc: editData
             })
         }).then((res) => {
             return res.json()
@@ -160,13 +161,16 @@ const Dashboard = () => {
                         <div className='containerdash'>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                 {
-                                    selected == "projects" && <h1 style={{ color: "blueviolet" }}>Upload</h1>
+                                    selected == "projects" && <h1 style={{ color: "blueviolet" }}>{data.length == 0 ? "Upload" : params.projectName}</h1>
                                 }
                                 {
                                     selected == "Widget" && <h1 style={{ color: "blueviolet" }}>Configuration</h1>
                                 }
                                 {
                                     selected == "edit" && <h1 style={{ color: "blueviolet" }}>Edit Transcript</h1>
+                                }
+                                {
+                                    selected == "setting" && <h1 style={{ color: "blueviolet" }}>Account Settings</h1>
                                 }
                                 {
                                     selected == "edit" && <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
@@ -202,6 +206,7 @@ const Dashboard = () => {
                                                             </div>
                                                             <div>
                                                                 <label htmlFor="">Font Color</label>
+                                                                <br />
                                                                 <input type="text" />
                                                                 <p>Lorem ipsuim dolor sit Lorem ipsuim dolor sit</p>
 
@@ -223,7 +228,7 @@ const Dashboard = () => {
                                                                 <p>Lorem ipsuim dolor sit Lorem ipsuim dolor sit</p>
                                                             </div>
                                                             <div>
-                                                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                                                                {/* <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" /> */}
 
                                                             </div>
                                                         </div>
@@ -267,6 +272,30 @@ const Dashboard = () => {
 
                                     </div>
                                 </>
+
+                            }
+
+                            {
+                                selected == "setting" && <div className='settingdiv'>
+                                    <div className='profilediv'>
+                                        <div style={{height:"80px",width:"80px",border:"1px solid white",borderRadius:"50%"}}><img width={"100%"}  src={image} alt="" /></div>
+                                        <div><form action="">
+                                            <div><label htmlFor="">User Name</label><input type="text" /></div>
+                                            <div><label htmlFor="">Email</label><input type="text" /></div>
+                                        </form></div>
+                                    </div>
+
+                                    <div>
+                                        <h1 style={{color:"blueviolet"}}>Subscriptions</h1>
+                                        <div className='bluebox' style={{height:"60px"}}>
+                                            <span>All files are processed! Your widget is ready to go!</span>
+                                            <button>Try it out!</button>
+                                          
+                                        </div>
+                                        <p style={{fontSize:"14px",color:"red",fontWeight:"500",textDecoration:"underline",fontWeight:"500"}}>Cancel Subscription</p>
+
+                                    </div>
+                                </div>
 
                             }
 

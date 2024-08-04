@@ -48,7 +48,7 @@ const Table = ({ data, setSearchParams, getTabledata, setEditData,setId }) => {
               <td>{item.name}</td>
               <td>{item.createdAt}</td>
               <td>{item.status}</td>
-              <td><button onClick={() => handleedit(item)}>Edit</button>&nbsp;<button onClick={() => handledelete(item._id)}>Delete</button></td>
+              <td><button style={{color:"white"}} onClick={() => handleedit(item)}>Edit</button>&nbsp;<button style={{color:"white"}} onClick={() => handledelete(item._id)}>Delete</button></td>
             </tr>
           ))}
         </tbody>
